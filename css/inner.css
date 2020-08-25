@@ -83,6 +83,7 @@ footer
 }
 .lity-wrap
 {
+    overflow-y: auto;
 
 /*   background-image: url("https://bit.ly/3liY2cK");
   background-size: cover;
