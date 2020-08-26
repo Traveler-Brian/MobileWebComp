@@ -92,14 +92,19 @@ function exampleImageData() {
     var Images = [];
     if(Name == "" || Remark == "") {
       alert("請完整填寫資訊！");
+      return;
     }else{
       if((Latitude == "" || Latitude == undefined || Latitude == null) && Address == "") {
           alert("請完整填寫資訊！");
+          return;
         }
     }
     if($(".selectedImages")[0] == undefined) {
       alert("您必須拍攝至少一張照片！");
+      return;
     }
+    var r = confirm("我們正在對圖片進行壓縮，可能需要一些時間，如果可以開始請按下確認按鈕。");
+    if(r!=true)return;
     $(".selectedImages").each(function(index){
       Images.push(LZString.compress($(".selectedImages")[index].getAttribute("data")));
     });
