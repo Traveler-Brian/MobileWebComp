@@ -101,7 +101,7 @@ function exampleImageData() {
       alert("您必須拍攝至少一張照片！");
     }
     $(".selectedImages").each(function(index){
-      Images.push($(".selectedImages")[index].getAttribute("data"));
+      Images.push(LZString.compress($(".selectedImages")[index].getAttribute("data")));
     });
     
     var Dict = {
@@ -192,3 +192,11 @@ function exampleImageData() {
     
   
   $("#openViewAllPage").click();
+
+  
+  // var string = "This is my compression test.";
+  // alert("Size of sample is: " + string.length);
+  // var compressed = LZString.compress(string);
+  // alert("Size of compressed sample is: " + compressed.length);
+  // string = LZString.decompress(compressed);
+  // alert("Sample is: " + string);
