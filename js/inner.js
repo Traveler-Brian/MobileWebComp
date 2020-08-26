@@ -184,7 +184,7 @@ function exampleImageData() {
       });
     }
     $(".loading > img")[0].style.display = "none";
-    }, 1000);
+    }, 100);
   }
 
     // var ex = localStorage.getItem("Example");
