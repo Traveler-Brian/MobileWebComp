@@ -28,10 +28,10 @@ function exampleImageData() {
       Longitude: 113.5374873,
     },
     Remark: "說真的，要不是入選為2018年度米其林推薦榜單的列表餐廳中，祥記麵家應該不會在我這次澳門美食的名單之中，翻開澳門特色美食頁章，竹昇打麵這項傳統技藝從廣州飄洋到澳門發揚光大，祥記麵家名氣或許不同於 黃枝記粥麵 的廣泛與高調，開設在澳門曾經最繁榮興盛的青樓老街上，會來的客人都是為了這碗招牌蝦子撈麵上門。",
-    Image: [LZString.compress(exampleImageData())]
+    Image: [exampleImageData()]
   }
   
-  localStorage.setItem("Example", JSON.stringify(ex));
+  localStorage.setItem("Example", LZString.compress(JSON.stringify(ex)));
   if(localStorage.getItem("Longitude") !== undefined) {
     localStorage.removeItem("Latitude");
     localStorage.removeItem("Longitude");
@@ -106,15 +106,18 @@ function exampleImageData() {
     var Remark = $("input[name=remark]")[0].value;
     var Images = [];
     if(Name == "" || Remark == "") {
+      $(".loading > img")[0].style.display = "none";
       alert("請完整填寫資訊！");
       return;
     }else{
       if((Latitude == "" || Latitude == undefined || Latitude == null) && Address == "") {
+        $(".loading > img")[0].style.display = "none";
           alert("請完整填寫資訊！");
           return;
         }
     }
     if($(".selectedImages")[0] == undefined) {
+      $(".loading > img")[0].style.display = "none";
       alert("您必須拍攝至少一張照片！");
       return;
     }
@@ -123,15 +126,10 @@ function exampleImageData() {
     if(r!=true){$(".loading > img")[0].style.display = "none";return;}
     var fileSize = 0;
     $(".selectedImages").each(function(index){
-      var compressed = LZString.compress($(".selectedImages")[index].getAttribute("data"));
-      fileSize += compressed.length;
-      Images.push(compressed);
+      Images.push($(".selectedImages")[index].getAttribute("data"));
     });
 
-    if(localStorageUsed + fileSize > 5*1024*1024) {
-      $(".loading > img")[0].style.display = "none";
-      alert("很抱歉，您的本地存儲空間不足，請嘗試清除或更換其他瀏覽器。");
-    }
+    
     
     var Dict = {
       Name: Name,
@@ -144,17 +142,24 @@ function exampleImageData() {
       Image: Images
     }
     
+    fileSize = LZString.compress(LZString.decompress(localStorage.getItem("myData")) + "," + JSON.stringify(Dict)).length;
+
+    if(localStorageUsed + fileSize > 5*1024*1024) {
+      $(".loading > img")[0].style.display = "none";
+      alert("很抱歉，您的本地存儲空間不足，請嘗試清除或更換其他瀏覽器。");
+    }
+
     // console.log(JSON.stringify(Dict));
     
     if(localStorage.getItem("myData") == undefined) {
-      localStorage.setItem("myData", "");
+      localStorage.setItem("myData", LZString.compress(""));
     }
-    if(localStorage.getItem("myData") != "") {
-      localStorage.setItem("myData", localStorage.getItem("myData") + "," + JSON.stringify(Dict));
+    if(localStorage.getItem("myData") != LZString.compress("")) {
+      localStorage.setItem("myData", LZString.compress(LZString.decompress(localStorage.getItem("myData")) + "," + JSON.stringify(Dict)));
     }else{
-      localStorage.setItem("myData", localStorage.getItem("myData") + JSON.stringify(Dict));
+      localStorage.setItem("myData", LZString.compress(LZString.decompress(localStorage.getItem("myData")) + JSON.stringify(Dict)));
     }
-    console.log(JSON.parse("["+localStorage.getItem("myData")+"]"));
+    console.log(JSON.parse("["+LZString.decompress(localStorage.getItem("myData"))+"]"));
 
     $("input[name=name]")[0].value = "";
     $("input[name=address]")[0].value = "";
@@ -180,31 +185,27 @@ function exampleImageData() {
   $(".view-all-records")[0].addEventListener("click", function(){
     $("#openViewAllPage").click();
   });
-  $(".view-all-records")[0].addEventListener("click", function(){
-    $("#openViewAllPage").click();
-    
-  });
 
   function showDetails(rec, ver) {
     $(".loading > img")[0].style.display = "block";
     setTimeout(() => {
       
-    var ex = localStorage.getItem("Example");
+    var ex = LZString.decompress(localStorage.getItem("Example"));
     ex = JSON.parse(ex);
     if(rec == "Example") {
       $("#popupViewDetails")[0].innerHTML = "<h1>" + ex.Name + "</h1>" +
       "<h4>" + ex.AddressText + "</h4>" +
       "<p>" + ex.Remark + "</p>" +
-      "<img src='" + LZString.decompress(ex.Image[0]) + "' />";
+      "<img src='" + ex.Image[0] + "' />";
       $("#openViewDetailsPage").click();
     }else{
-      var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
+      var localData = JSON.parse("["+LZString.decompress(localStorage.getItem("myData"))+"]");
       localData.forEach(function(item){
-        if(rec == LZString.decompress(item.Image[0])&& item.Name == ver) {
+        if(rec == item.Image[0]&& item.Name == ver) {
           $("#popupViewDetails")[0].innerHTML = "<h1>" + item.Name + "</h1>" +
           "<h4>" + item.AddressText + "</h4>" +
           "<p>" + item.Remark + "</p>" +
-          "<img src='" + LZString.decompress(item.Image[0]) + "' />";
+          "<img src='" + item.Image[0] + "' />";
           $("#openViewDetailsPage").click();
         }
       });
@@ -222,28 +223,32 @@ function exampleImageData() {
     //   $("#details > ul")[0].innerHTML += "<li><a href='javascript:showDetails(\"" + LZString.decompress(item.Image[0]) + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
     // });
 
-    var ex = localStorage.getItem("Example");
+    var ex = LZString.decompress(localStorage.getItem("Example"));
       ex = JSON.parse(ex);
       var dom = "<ul class='w3-ul'>";
       dom += "<li><h2>所有「發現」</h2></li>";
       dom += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>";
-      var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
-      localData.forEach(function(item){
-        dom += "<li><a href='javascript:showDetails(\"" + LZString.decompress(item.Image[0]) + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
-      });
-      dom += "</ul>"
+      if(localStorage.getItem("myData") != undefined) {
+        var localData = JSON.parse("["+LZString.decompress(localStorage.getItem("myData"))+"]");
+        localData.forEach(function(item){
+          dom += "<li><a href='javascript:showDetails(\"" + item.Image[0] + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
+        });
+        dom += "</ul>"
+      }
       $("#details")[0].innerHTML = dom;
     setInterval(function(){
-      var ex = localStorage.getItem("Example");
+      var ex = LZString.decompress(localStorage.getItem("Example"));
       ex = JSON.parse(ex);
       var dom = "<ul class='w3-ul'>";
       dom += "<li><h2>所有「發現」</h2></li>";
       dom += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>";
-      var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
-      localData.forEach(function(item){
-        dom += "<li><a href='javascript:showDetails(\"" + LZString.decompress(item.Image[0]) + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
-      });
-      dom += "</ul>"
+      if(localStorage.getItem("myData") != undefined) {
+        var localData = JSON.parse("["+LZString.decompress(localStorage.getItem("myData"))+"]");
+        localData.forEach(function(item){
+          dom += "<li><a href='javascript:showDetails(\"" + item.Image[0] + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
+        });
+        dom += "</ul>"
+      }
       $("#details")[0].innerHTML = dom;
     },1000);
     // ex = JSON.parse(ex);
@@ -258,6 +263,7 @@ function exampleImageData() {
   
   $("#openViewAllPage").click();
 
+  
   
   // var string = "This is my compression test.";
   // alert("Size of sample is: " + string.length);
