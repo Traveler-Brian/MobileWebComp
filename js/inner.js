@@ -277,6 +277,9 @@ function exampleImageData() {
           "<h4>" + item.AddressText + "</h4>" +
           "<p>" + item.Remark + "</p>" +
           "<img src='" + item.Image[0] + "' />";
+          if(item.Image[1] != undefined) {
+            $("#popupViewDetails")[0].innerHTML += "<img src='" + item.Image[1] + "' />";
+          }
           $("#openViewDetailsPage").click();
         }
       });
