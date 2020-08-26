@@ -154,6 +154,10 @@ function exampleImageData() {
   $(".view-all-records")[0].addEventListener("click", function(){
     $("#openViewAllPage").click();
   });
+  $(".view-all-records")[0].addEventListener("click", function(){
+    $("#openViewAllPage").click();
+    
+  });
 
   function showDetails(rec, ver) {
     var ex = localStorage.getItem("Example");
@@ -167,25 +171,50 @@ function exampleImageData() {
     }else{
       var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
       localData.forEach(function(item){
-        if(rec == item.Image[0] && item.Name == ver) {
+        if(rec == LZString.decompress(item.Image[0])&& item.Name == ver) {
           $("#popupViewDetails")[0].innerHTML = "<h1>" + item.Name + "</h1>" +
           "<h4>" + item.AddressText + "</h4>" +
           "<p>" + item.Remark + "</p>" +
-          "<img src='" + item.Image[0] + "' />";
+          "<img src='" + LZString.decompress(item.Image[0]) + "' />";
           $("#openViewDetailsPage").click();
         }
       });
     }
   }
 
+    // var ex = localStorage.getItem("Example");
+    // ex = JSON.parse(ex);
+    // $("#details")[0].innerHTML += "<ul class='w3-ul'><li><h2>所有「發現」</h2></li></ul>";
+    // $("#details > ul")[0].innerHTML += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>"
+    // var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
+    // localData.forEach(function(item){
+    //   $("#details > ul")[0].innerHTML += "<li><a href='javascript:showDetails(\"" + LZString.decompress(item.Image[0]) + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
+    // });
+
     var ex = localStorage.getItem("Example");
-    ex = JSON.parse(ex);
-    $("#details")[0].innerHTML += "<ul class='w3-ul'><li><h2>所有「發現」</h2></li></ul>";
-    $("#details > ul")[0].innerHTML += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>"
-    var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
-    localData.forEach(function(item){
-      $("#details > ul")[0].innerHTML += "<li><a href='javascript:showDetails(\"" + item.Image[0] + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
-    });
+      ex = JSON.parse(ex);
+      var dom = "<ul class='w3-ul'>";
+      dom += "<li><h2>所有「發現」</h2></li>";
+      dom += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>";
+      var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
+      localData.forEach(function(item){
+        dom += "<li><a href='javascript:showDetails(\"" + LZString.decompress(item.Image[0]) + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
+      });
+      dom += "</ul>"
+      $("#details")[0].innerHTML = dom;
+    setInterval(function(){
+      var ex = localStorage.getItem("Example");
+      ex = JSON.parse(ex);
+      var dom = "<ul class='w3-ul'>";
+      dom += "<li><h2>所有「發現」</h2></li>";
+      dom += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>";
+      var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
+      localData.forEach(function(item){
+        dom += "<li><a href='javascript:showDetails(\"" + LZString.decompress(item.Image[0]) + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
+      });
+      dom += "</ul>"
+      $("#details")[0].innerHTML = dom;
+    },1000);
     // ex = JSON.parse(ex);
     // var shortRemark = ex.Remark;
     // var shortRemark = shortRemark.length > 30 ? (shortRemark).slice(0,30)+"…點按查看全文" : shortRemark;
