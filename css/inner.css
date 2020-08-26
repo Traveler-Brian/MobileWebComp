@@ -32,11 +32,10 @@ footer
   background: rgba(0,100,152,0.55);
   width: 80vw;
   height: 30vh;
-  #border: 2px solid black;
   border-radius: 25px;
   margin: 0 auto;
   position: fixed;
-  top: calc((100vh - 5vh - 60vh)/2);
+  top: calc((100% - 5% - 60%)/2);
   left: 10vw;
   right: 10vw;
 }
@@ -50,11 +49,10 @@ footer
   background: rgba(255,255,255,0.5);
   width: 80vw;
   height: 30vh;
-  #border: 2px solid black;
   border-radius: 25px;
   margin: 0 auto;
   position: fixed;
-  top: calc(((100vh - 5vh - 60vh)/2) + 30vh + 5vh);
+  top: calc(((100% - 5% - 60%)/2) + 30% + 5%);
   left: 10vw;
   right: 10vw;
 }
