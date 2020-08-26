@@ -10,7 +10,7 @@ body
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-pisition: center center;
+  background-position: center center;
 }
 footer
 {
@@ -81,16 +81,10 @@ footer
 .lity-wrap
 {
     overflow-y: auto;
-
-/*   background-image: url("https://bit.ly/3liY2cK");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-pisition: center center; */
 }
-.lity-opened
+.lity-opened /*The background colour of the lity-popup */
 {
-  background-color: rgba(255,255,255,0.75) !important;
+  background-color: rgba(220,232,239,1) !important;
 }
 .textField
 {
