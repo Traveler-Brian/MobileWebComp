@@ -115,7 +115,7 @@ function exampleImageData() {
       Image: Images
     }
     
-    console.log(JSON.stringify(Dict));
+    // console.log(JSON.stringify(Dict));
     
     if(localStorage.getItem("myData") == undefined) {
       localStorage.setItem("myData", "");
