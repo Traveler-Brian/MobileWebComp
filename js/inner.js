@@ -65,15 +65,9 @@
   }
   
   function showPosition(position) {
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
     localStorage.setItem("Latitude", position.coords.latitude);
     localStorage.setItem("Longitude", position.coords.longitude);
-    console.log(localStorage.getItem("Latitude"));
-    console.log(localStorage.getItem("Longitude"));
     if(localStorage.getItem("Latitude") !== undefined && localStorage.getItem("Longitu") !== undefined) {
-      console.log(localStorage.getItem("Latitude"));
-      console.log(localStorage.getItem("Longitude"));
       $("input[name=address]")[0].setAttribute("placeholder","已嘗試獲得經緯度，您也可以在此輸入更為準確的地址。");
       $("input[name=latitude]")[0].setAttribute("value",localStorage.getItem("Latitude"));
       $("input[name=longitude]")[0].setAttribute("value",localStorage.getItem("Longitude"));
@@ -168,7 +162,6 @@
       
       fileSize = byteLength(LZString.compress(LZString.decompress(localStorage.getItem("myData")) + "," + JSON.stringify(Dict)));
 
-      console.log(fileSize);
       if(fileSize > 4*1024*1024) {
         $(".loading > img")[0].style.display = "none";
         alert("很抱歉，您的本地存儲空間不足，請嘗試清除或更換其他瀏覽器。");
@@ -183,7 +176,6 @@
       }else{
         localStorage.setItem("myData", LZString.compress(LZString.decompress(localStorage.getItem("myData")) + JSON.stringify(Dict)));
       }
-      console.log(JSON.parse("["+LZString.decompress(localStorage.getItem("myData"))+"]"));
 
       $("input[name=name]")[0].value = "";
       $("input[name=address]")[0].value = "";
@@ -270,3 +262,7 @@
   
   /**Temp */    
   $("#openViewAllPage").click();
+
+  function showdata() {
+    console.log(JSON.parse("[" + LZString.decompress(localStorage.getItem("myData")) + "]"));
+  }
