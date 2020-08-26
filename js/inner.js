@@ -145,5 +145,50 @@ function exampleImageData() {
   
   
   $(".submit-record")[0].addEventListener("click", getLocation());
-  $(".submit-record")[0].addEventListener("click", function(){$("#test1").click();});
+  $(".submit-record")[0].addEventListener("click", function(){$("#openSubmitPage").click();});
+  $(".view-all-records")[0].addEventListener("click", function(){
+    $("#openViewAllPage").click();
+  });
+
+  function showDetails(rec, ver) {
+    var ex = localStorage.getItem("Example");
+    ex = JSON.parse(ex);
+    if(rec == "Example") {
+      $("#popupViewDetails")[0].innerHTML = "<h1>" + ex.Name + "</h1>" +
+      "<h4>" + ex.AddressText + "</h4>" +
+      "<p>" + ex.Remark + "</p>" +
+      "<img src='" + ex.Image[0] + "' />";
+      $("#openViewDetailsPage").click();
+    }else{
+      var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
+      localData.forEach(function(item){
+        if(rec == item.Image[0] && item.Name == ver) {
+          $("#popupViewDetails")[0].innerHTML = "<h1>" + item.Name + "</h1>" +
+          "<h4>" + item.AddressText + "</h4>" +
+          "<p>" + item.Remark + "</p>" +
+          "<img src='" + item.Image[0] + "' />";
+          $("#openViewDetailsPage").click();
+        }
+      });
+    }
+  }
+
+    var ex = localStorage.getItem("Example");
+    ex = JSON.parse(ex);
+    $("#details")[0].innerHTML += "<ul class='w3-ul'><li><h2>所有「發現」</h2></li></ul>";
+    $("#details > ul")[0].innerHTML += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>"
+    var localData = JSON.parse("["+localStorage.getItem("myData")+"]");
+    localData.forEach(function(item){
+      $("#details > ul")[0].innerHTML += "<li><a href='javascript:showDetails(\"" + item.Image[0] + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
+    });
+    // ex = JSON.parse(ex);
+    // var shortRemark = ex.Remark;
+    // var shortRemark = shortRemark.length > 30 ? (shortRemark).slice(0,30)+"…點按查看全文" : shortRemark;
+    // $("#details")[0].innerHTML += "<li>" + "<h1>" + ex.Name + "</h1><h4>" + (ex.Latitude!=""?"<a>" + ex.AddressText + "</a>":ex.AddressText) + "</h4>" + 
+    // "<p>" + shortRemark + "</p><div>";
+    // ex.Image.forEach(function(item){
+    //   $("#details")[0].innerHTML += "<img src='" + item + "' />";
+    // });
+    
   
+  $("#openViewAllPage").click();

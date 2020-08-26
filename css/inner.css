@@ -59,13 +59,12 @@ footer
 .view-all-records > div, .submit-record > div
 {
   margin: 0 auto;
-  #border: 2px solid red;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   font-size: calc(5vw/5vh);
 }
-#popupSubmit
+#popupSubmit, #popupViewAll, #popupViewDetails
 {
   color: black;
   width: 90vw;
@@ -129,4 +128,9 @@ footer
   flex-wrap:wrap;
   margin: 0 auto;
   justify-content: center;
+}
+#details > li
+{
+  text-decoration: none;
+  list-style: none;
 }
