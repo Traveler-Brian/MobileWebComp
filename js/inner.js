@@ -144,7 +144,7 @@ function exampleImageData() {
     
     fileSize = LZString.compress(LZString.decompress(localStorage.getItem("myData")) + "," + JSON.stringify(Dict)).length;
 
-    if(localStorageUsed + fileSize > 5*1024*1024) {
+    if(fileSize > 4*1024*1024) {
       $(".loading > img")[0].style.display = "none";
       alert("很抱歉，您的本地存儲空間不足，請嘗試清除或更換其他瀏覽器。");
     }
