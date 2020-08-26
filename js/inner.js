@@ -120,7 +120,7 @@ function exampleImageData() {
     }
     
     var r = confirm("我們正在對圖片進行壓縮，可能需要一些時間，如果可以開始請按下確認按鈕。");
-    if(r!=true)return;
+    if(r!=true){$(".loading > img")[0].style.display = "none";return;}
     var fileSize = 0;
     $(".selectedImages").each(function(index){
       var compressed = LZString.compress($(".selectedImages")[index].getAttribute("data"));
