@@ -62,6 +62,10 @@ function exampleImageData() {
   
   
   function readFile() {
+    if($(".selectedImages").length >= 2) {
+      alert("您最多只能上載兩張照片。");
+      return;
+    }
     
     if (this.files && this.files[0]) {
       
@@ -89,7 +93,7 @@ function exampleImageData() {
     if(Name == "" || Remark == "") {
       alert("請完整填寫資訊！");
     }else{
-      if(Latitude == "" || Latitude == undefined || Latitude == null) {
+      if((Latitude == "" || Latitude == undefined || Latitude == null) && Address == "") {
           alert("請完整填寫資訊！");
         }
     }
@@ -122,9 +126,17 @@ function exampleImageData() {
       localStorage.setItem("myData", localStorage.getItem("myData") + JSON.stringify(Dict));
     }
     console.log(JSON.parse("["+localStorage.getItem("myData")+"]"));
+
+    $("input[name=name]")[0].value = "";
+    $("input[name=address]")[0].value = "";
+    $("input[name=latitude]")[0].value = "";
+    $("input[name=longitude]")[0].value = "";
+    $("input[name=remark]")[0].value = "";
+    $(".selectedImages").remove();
+    $(".lity-close")[0].click();
+    alert("數據儲存成功！");
   
   }
-  
   
   
   document.getElementById("camera").addEventListener("change", readFile);
