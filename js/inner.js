@@ -129,8 +129,8 @@ function exampleImageData() {
         image.onload = function() {
             let canvas = document.createElement('canvas'), 
             context = canvas.getContext('2d'),
-            imageWidth = image.width / 2,    //压缩后图片的大小
-            imageHeight = image.height / 2,
+            imageWidth = 400,    //压缩后图片的大小
+            imageHeight = (400/image.width)*image.height,
             data = ''
 
             canvas.width = imageWidth
