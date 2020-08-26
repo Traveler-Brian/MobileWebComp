@@ -160,6 +160,7 @@ function exampleImageData() {
   });
 
   function showDetails(rec, ver) {
+    $(".loading > img")[0].style.display = "block";
     var ex = localStorage.getItem("Example");
     ex = JSON.parse(ex);
     if(rec == "Example") {
@@ -180,6 +181,7 @@ function exampleImageData() {
         }
       });
     }
+    $(".loading > img")[0].style.display = "none";
   }
 
     // var ex = localStorage.getItem("Example");
