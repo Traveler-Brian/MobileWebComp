@@ -161,6 +161,8 @@ function exampleImageData() {
 
   function showDetails(rec, ver) {
     $(".loading > img")[0].style.display = "block";
+    setTimeout(() => {
+      
     var ex = localStorage.getItem("Example");
     ex = JSON.parse(ex);
     if(rec == "Example") {
@@ -182,6 +184,7 @@ function exampleImageData() {
       });
     }
     $(".loading > img")[0].style.display = "none";
+    }, 1000);
   }
 
     // var ex = localStorage.getItem("Example");
