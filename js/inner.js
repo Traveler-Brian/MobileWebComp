@@ -98,7 +98,8 @@ function exampleImageData() {
   
   function recSubmit() {
     $(".loading > img")[0].style.display = "block";
-    var Name = $("input[name=name]")[0].value;
+    setTimeout(() => {
+      var Name = $("input[name=name]")[0].value;
     var Address = $("input[name=address]")[0].value;
     var Latitude = $("input[name=latitude]")[0].value;
     var Longitude = $("input[name=longitude]")[0].value;
@@ -128,6 +129,7 @@ function exampleImageData() {
     });
 
     if(localStorageUsed + fileSize > 5*1024*1024) {
+      $(".loading > img")[0].style.display = "none";
       alert("很抱歉，您的本地存儲空間不足，請嘗試清除或更換其他瀏覽器。");
     }
     
@@ -163,6 +165,7 @@ function exampleImageData() {
     $(".lity-close")[0].click();
     $(".loading > img")[0].style.display = "none";
     alert("數據儲存成功！");
+    }, 100);
     
   }
   
