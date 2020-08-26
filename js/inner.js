@@ -51,7 +51,7 @@
     localStorage.removeItem("Longitude");
   }
   
-  if(window.outerHeight < window.outerWidth && !location.href.includes("boomboom")) {
+  if(window.outerHeight < window.outerWidth && !location.href.includes("127.0.0.1")) {
     alert("很抱歉，本網站暫時只提供移動端設備使用。\n如果您正在使用移動端訪問此網站，請勿使用橫向螢幕。\n按下「確認」重新載入。");
     location.href = location.href;
   }
