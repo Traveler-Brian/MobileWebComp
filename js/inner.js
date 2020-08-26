@@ -85,6 +85,31 @@ function exampleImageData() {
     $("div[data='"+data+"']")[0].remove();
   }
   
+  function compress() { 
+    let fileObj = document.getElementById('camera').files[0] //上传文件的对象
+    let reader = new FileReader()
+    reader.readAsDataURL(fileObj)
+    reader.onload = function(e) {
+        let image = new Image() //新建一个img标签（还没嵌入DOM节点)
+        image.src = e.target.result
+        image.onload = function() {
+            let canvas = document.createElement('canvas'), 
+            context = canvas.getContext('2d'),
+            imageWidth = image.width / 2,    //压缩后图片的大小
+            imageHeight = image.height / 2,
+            data = ''
+
+            canvas.width = imageWidth
+            canvas.height = imageHeight
+
+            context.drawImage(image, 0, 0, imageWidth, imageHeight)
+            data = canvas.toDataURL('image/jpeg')
+
+            //压缩完成 
+            return data
+        }
+    }
+}
   
   function readFile() {
     if($(".selectedImages").length >= 2) {
@@ -92,13 +117,32 @@ function exampleImageData() {
       return;
     }
     
+    
+
     if (this.files && this.files[0]) {
       
       var FR= new FileReader();
       
       FR.addEventListener("load", function(e) {
-        $(".imageView").html($(".imageView")[0].innerHTML + "<div data='" + e.target.result + "' width=150px height=150px class='selectedImages' style='background-image:url(\""+e.target.result+"\")'>" +
-                            "<a href='javascript:removeImg(\""+e.target.result+"\")'>移除</a></div>")
+        let image = new Image() //新建一个img标签（还没嵌入DOM节点)
+        image.src = e.target.result
+        image.onload = function() {
+            let canvas = document.createElement('canvas'), 
+            context = canvas.getContext('2d'),
+            imageWidth = image.width / 2,    //压缩后图片的大小
+            imageHeight = image.height / 2,
+            data = ''
+
+            canvas.width = imageWidth
+            canvas.height = imageHeight
+
+            context.drawImage(image, 0, 0, imageWidth, imageHeight)
+            data = canvas.toDataURL('image/jpeg')
+            $(".imageView").html($(".imageView")[0].innerHTML + "<div data='" + data + "' width=150px height=150px class='selectedImages' style='background-image:url(\""+data+"\")'>" + "<a href='javascript:removeImg(\""+data+"\")'>移除</a></div>")
+            
+        }
+        // $(".imageView").html($(".imageView")[0].innerHTML + "<div data='" + compress() + "' width=150px height=150px class='selectedImages' style='background-image:url(\""+compress()+"\")'>" +
+        //                     "<a href='javascript:removeImg(\""+compress()+"\")'>移除</a></div>")
         // document.getElementById("img").src       = e.target.result;
         // document.getElementById("b64").innerHTML = e.target.result;
       }); 
