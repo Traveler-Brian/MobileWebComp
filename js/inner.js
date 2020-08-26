@@ -138,7 +138,7 @@ function exampleImageData() {
 
             context.drawImage(image, 0, 0, imageWidth, imageHeight)
             data = canvas.toDataURL('image/jpeg')
-            $(".imageView").html($(".imageView")[0].innerHTML + "<div data='" + data + "' width=150px height=150px class='selectedImages' style='background-image:url(\""+data+"\")'>" + "<a href='javascript:removeImg(\""+data+"\")'>移除</a></div>")
+            $(".imageView").html($(".imageView")[0].innerHTML + "<div data-aos=\"flip-left\" data='" + data + "' width=150px height=150px class='selectedImages' style='background-image:url(\""+data+"\")'>" + "<a href='javascript:removeImg(\""+data+"\")'>移除</a></div>")
             
         }
         // $(".imageView").html($(".imageView")[0].innerHTML + "<div data='" + compress() + "' width=150px height=150px class='selectedImages' style='background-image:url(\""+compress()+"\")'>" +
