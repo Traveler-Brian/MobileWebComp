@@ -35,7 +35,7 @@ footer
   border-radius: 25px;
   margin: 0 auto;
   position: fixed;
-  top: calc((100% - 5% - 60%)/2);
+  top: calc((100% - 5vh - 60%)/2);
   left: 10vw;
   right: 10vw;
 }
@@ -52,7 +52,7 @@ footer
   border-radius: 25px;
   margin: 0 auto;
   position: fixed;
-  top: calc(((100% - 5% - 60%)/2) + 30% + 5%);
+  top: calc(((100% - 5vh - 60%)/2) + 30% + 5vh);
   left: 10vw;
   right: 10vw;
 }
