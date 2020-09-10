@@ -337,7 +337,7 @@
 
   setInterval(function(){
     if($("div > div > div > #popupSubmit")[0] != undefined) {
-      $(".lity-opened")[0].setAttribute("style", "background: rgba(220,232,239,1) !important");
+      $(".lity-opened")[0].setAttribute("style", "background: rgba(220,232,239,0.85) !important");
     }else if($("div > div > div > #popupViewAll")[0] != undefined){
       $(".lity-opened")[0].style = "background-image: url('img/bg.jpg')";
       if($(".lity-opened")[1] != undefined) {
