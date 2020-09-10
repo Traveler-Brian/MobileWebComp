@@ -31,8 +31,18 @@
 > 儲存於 `img/` 下以及於 `inner.js` 中以 `base64` 格式存在的圖片檔案均來自於網路。
 
 ### 螢幕截圖
+<details><summary>展開①</summary>
 ![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/1.PNG?raw=true)
-![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/2.png?raw=true)
-![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/3.png?raw=true)
-![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/4.png?raw=true)
-![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/5.png?raw=true)
+</details>
+<details><summary>展開②</summary>
+![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/2.PNG?raw=true)
+</details>
+<details><summary>展開③</summary>
+![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/3.PNG?raw=true)
+</details>
+<details><summary>展開④</summary>
+![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/4.PNG?raw=true)
+</details>
+<details><summary>展開⑤</summary>
+![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/5.PNG?raw=true)
+</details>
