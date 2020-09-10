@@ -319,11 +319,11 @@
   setInterval(function(){
     if($("div > div > div > #popupSubmit")[0] != undefined) {
       $(".lity-opened")[0].style.background = "rgba(220,232,239,1)";
-    }else if($(".lity-opened")[0] != undefined && $(".lity-opened")[0].style != "background-image: url('img/bg.jpg')"){
-      // $(".lity-opened")[0].style.background = "none";
+    }else if($("div > div > div > #popupViewAll")[0] != undefined){
       $(".lity-opened")[0].style = "background-image: url('img/bg.jpg')";
-      // $(".lity-opened")[1].style.background = "none";
-      $(".lity-opened")[1].style = "background-image: url('img/bg.jpg')";
+      if($(".lity-opened")[1] != undefined) {
+        $(".lity-opened")[1].style = "background-image: url('img/bg.jpg')";
+      }
     }
   },1);
 
