@@ -8,8 +8,8 @@
   function share(name, remark, address) {
     if (navigator.share) {
       navigator.share({
-        title: "發現寶藏！" + name,
-        text: remark,
+        title: ("發現寶藏！" + name),
+        text: (("發現寶藏！" + name) + remark),
         url: rootUrl,
       })
         .then(() => console.log('Successful share'))
