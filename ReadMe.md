@@ -24,3 +24,8 @@
 3. JQuery `實用組建`
 4. Lity `彈出(PopUp)組建，用於實現彈出效果以及功能。`
 5. Lz-String `文本壓縮組建，用於整體壓縮文本以節省 localStorage 用量。`
+6. W3.css `美化組建，可能涉及少量使用。`
+7. Google Font `字體組建，用於實現各平台字體統一。`
+8. Animate CSS `動畫組建，目前已棄用，使用 Aos 代替。`
+
+> 儲存於 `img/` 下以及於 `inner.js` 中以 `base64` 格式存在的圖片檔案均來自於網路。
