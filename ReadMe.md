@@ -32,17 +32,27 @@
 
 ### 螢幕截圖
 <details><summary>展開①</summary>
+
 ![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/1.PNG?raw=true)
+
 </details>
 <details><summary>展開②</summary>
+
 ![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/2.PNG?raw=true)
+
 </details>
 <details><summary>展開③</summary>
+
 ![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/3.PNG?raw=true)
+
 </details>
 <details><summary>展開④</summary>
+
 ![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/4.PNG?raw=true)
+
 </details>
 <details><summary>展開⑤</summary>
+
 ![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/5.PNG?raw=true)
+
 </details>
