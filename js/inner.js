@@ -271,7 +271,8 @@
           // }
           if(item.AddressRec.Latitude > 1 && item.AddressRec.Longitude > 1) {
             $("#popupViewDetails")[0].innerHTML += 
-            '<div class="iframecontainer"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='+item.AddressRec.Latitude +','+item.AddressRec.Longitude+'&hl=zh-TW&z=14&amp;output=embed"></iframe></div>';
+            '<div class="iframecontainer"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='+item.AddressRec.Latitude +','+item.AddressRec.Longitude+'&hl=zh-TW&z=14&amp;output=embed"></iframe></div>' +
+            "<a href=\"javascript:share('" + ex.Name + "', '" + ex.Remark + "', '" + ex.AddressText + "')\" class='sharebtn'>分享</a>";
           }
           $("#openViewDetailsPage").click();
         }
