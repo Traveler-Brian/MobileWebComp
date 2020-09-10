@@ -208,19 +208,33 @@
       $(".selectedImages").remove();
       $(".lity-close")[0].click();
       $(".loading > img")[0].style.display = "none";
-        var ex = LZString.decompress(localStorage.getItem("Example"));
-        ex = JSON.parse(ex);
-        var dom = "<ul class='w3-ul'>";
-        dom += "<li><h2>所有「發現」</h2></li>";
-        dom += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>";
-        if(localStorage.getItem("myData") != undefined) {
-          var localData = JSON.parse("["+LZString.decompress(localStorage.getItem("myData"))+"]");
-          localData.forEach(function(item){
-            dom += "<li><a href='javascript:showDetails(\"" + item.Image[0] + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
-          });
-          dom += "</ul>"
-        }
-        $("#details")[0].innerHTML = dom;
+      var ex = LZString.decompress(localStorage.getItem("Example"));
+      ex = JSON.parse(ex);
+      var dom = "";
+      dom += "<h2>所有「發現」</h2>";
+      dom += "<input id='search' type='text' placeholder=' 搜尋'></input>";
+      // dom += "<li><a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + ex.Name + "</a></li>";
+          dom += "<ul>";
+          dom += "<a href='javascript:showDetails(\"" + "Example" + "\", \"Example\")'>" + "<li>";
+          dom += "<img src=\"" + ex.Image[0] + "\"/>";
+          dom += "<h3>" + ex.Name + "</h3>";
+          dom += "<p>" + ex.Remark + "</p>";
+          dom += "</li> </a>";
+      if(localStorage.getItem("myData") != undefined) {
+        var localData = JSON.parse("["+LZString.decompress(localStorage.getItem("myData"))+"]");
+        localData.forEach(function(item){
+          // dom += "<li><a href='javascript:showDetails(\"" + item.Image[0] + "\", \"" + item.Name + "\")'>" + item.Name + "</a></li>";
+          dom += "<a href='javascript:showDetails(\"" + item.Image[0] + "\", \"" + item.Name + "\")'><li>";
+          dom += "<img src=\"" + item.Image[0] + "\"/>";
+          dom += "<h3>" + item.Name + "</h3>";
+          dom += "<p>" + item.Remark + "</p>";
+          dom += "</li></a>";
+        });
+        dom += "</ul>"
+      }else{
+        dom += "</ul>"
+      }
+      $("#details")[0].innerHTML = dom;
         alert("數據儲存成功！");
       }, 100);
     
