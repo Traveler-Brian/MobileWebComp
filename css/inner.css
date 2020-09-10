@@ -84,7 +84,7 @@ footer
 }
 .lity-opened /*The background colour of the lity-popup */
 {
-  background-color: rgba(220,232,239,1) !important;
+  background-color: rgba(220,232,239,.55) !important;
 }
 .textField
 {

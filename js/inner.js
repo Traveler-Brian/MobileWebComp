@@ -337,7 +337,7 @@
 
   setInterval(function(){
     if($("div > div > div > #popupSubmit")[0] != undefined) {
-      $(".lity-opened")[0].style = "background: rgba(220,232,239,1)";
+      $(".lity-opened")[0].setAttribute("style", "background: rgba(220,232,239,1) !important");
     }else if($("div > div > div > #popupViewAll")[0] != undefined){
       $(".lity-opened")[0].style = "background-image: url('img/bg.jpg')";
       if($(".lity-opened")[1] != undefined) {
@@ -345,6 +345,12 @@
       }
     }
   },1);
+  
+  // setInterval(function(){
+  //   if($(".lity-opened")[2] != undefined) {
+  //     $(".lity-opened")[2].style = "background: rgba(220,232,239,0.55)";
+  //   }
+  // },1);
 
   $("#search")[0].addEventListener("input", function(){
     var search = $("#search")[0].value;
