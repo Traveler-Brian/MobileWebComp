@@ -346,11 +346,11 @@
     }
   },1);
   
-  // setInterval(function(){
-  //   if($(".lity-opened")[2] != undefined) {
-  //     $(".lity-opened")[2].style = "background: rgba(220,232,239,0.55)";
-  //   }
-  // },1);
+  setInterval(function(){
+    if($(".lity-opened")[2] != undefined && $(".lity-opened")[2].getAttribute("style") != "background: rgba(220,232,239,0.55) !important") {
+      $(".lity-opened")[2].setAttribute("style","background: rgba(220,232,239,0.55) !important");
+    }
+  },1);
 
   $("#search")[0].addEventListener("input", function(){
     var search = $("#search")[0].value;
