@@ -310,7 +310,7 @@
   $("#details")[0].innerHTML = dom;
   
   /**Temp */    
-  $("#openViewAllPage").click();
+  // $("#openViewAllPage").click();
 
   function showdata() {
     console.log(JSON.parse("[" + LZString.decompress(localStorage.getItem("myData")) + "]"));
