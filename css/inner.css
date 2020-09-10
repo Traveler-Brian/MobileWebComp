@@ -216,6 +216,8 @@ footer
 }
 #popupViewDetails > h4 {
   text-align: center;
+  background: rgba(0,100,152,0.3);
+  color: white;
 }
 
 #popupViewDetails > .imgShow {
