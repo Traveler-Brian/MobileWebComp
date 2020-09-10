@@ -9,7 +9,7 @@
     if (navigator.share) {
       navigator.share({
         title: ("發現寶藏！" + name),
-        text: (("發現寶藏！" + name) + remark),
+        text: (("發現寶藏！" + name + "！\n\n") + remark),
         url: rootUrl,
       })
         .then(() => console.log('Successful share'))
