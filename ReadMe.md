@@ -57,6 +57,18 @@
 
 </details>
 
+<details><summary>展開⑥</summary>
+
+![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/5.PNG?raw=true)
+
+</details>
+
+<details><summary>展開⑦</summary>
+
+![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/6.PNG?raw=true)
+
+</details>
+
 ### 螢幕錄影
 按以下下面縮圖進入YouTube觀看。
 
