@@ -56,3 +56,8 @@
 ![image](https://github.com/Traveler-Brian/MobileWebComp/blob/master/screenshots/5.PNG?raw=true)
 
 </details>
+
+### 螢幕錄影
+<video width="320" height="240" controls>
+  <source src="https://github.com/Traveler-Brian/MobileWebComp/blob/master/video/1.mov" type="video/mov">
+</video>
