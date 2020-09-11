@@ -69,9 +69,13 @@ footer
   color: black;
   width: 90vw;
   height: 90vh;
-  overflow:auto;
+  overflow: auto;
   z-index:999;
   box-shadow: 0px 0px 0px rgba(0,0,0,0) !important;
+}
+#popupSubmit > .submitContainer
+{
+  margin: 20px !important;
 }
 .lity-content::after
 {
