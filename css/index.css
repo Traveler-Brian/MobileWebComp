@@ -101,3 +101,7 @@ footer
   background-attachment: fixed;
   background-pisition: center center; */
 }
+
+input {
+  font-size: 16px;
+}
