@@ -285,8 +285,8 @@
         if(rec == item.Image[0]&& item.Name == ver) {
           $("#popupViewDetails")[0].innerHTML = "<h1>" + item.Name + "</h1>" +
           "<h4>" + item.AddressText + "</h4><div class='imgShow'>" +
-          "<a href=\"javascript:lity('" + item.Image[0] + "')\"><img src='" + item.Image[0] + "' /></img>" +
-          (item.Image[1]!=undefined?"<a href=\"javascript:lity('" + item.Image[1] + "')\"><img src='" + item.Image[1] + "' /></img>":"") + 
+          "<a href=\"javascript:lity('" + item.Image[0] + "')\"><img src='" + item.Image[0] + "' /></img></a>" +
+          (item.Image[1]!=undefined?"<a href=\"javascript:lity('" + item.Image[1] + "')\"><img src='" + item.Image[1] + "' /></img></a>":"") + 
           "</div><p>" + item.Remark + "</p>";
           // if(item.Image[1] != undefined) {
           //   $("#popupViewDetails")[0].innerHTML += "<img src='" + item.Image[1] + "' />";
