@@ -75,7 +75,7 @@ footer
 }
 #popupSubmit > .submitContainer
 {
-  margin: 20px !important;
+  margin: 15px !important;
 }
 .lity-content::after
 {
@@ -291,7 +291,6 @@ textarea {
 
 .w3-input {
   background: rgba(255,255,255,.55);
-  text-shadow: 2px 2px 3px rgba(0,0,0,.5);
   -moz-appearance: none;
   -webkit-appearance: none;
   border-radius: 15px;
@@ -299,14 +298,16 @@ textarea {
 
 .w3-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(255,255,255,.75);
-  text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+  text-shadow: 2px 2px 3px rgba(0,0,0,.2);
   opacity: 1; /* Firefox */
 }
 
 .w3-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: rgba(255,255,255,.75);;
+  color: rgba(255,255,255,.75);
+  text-shadow: 2px 2px 3px rgba(0,0,0,.2);
 }
 
 .w3-input::-ms-input-placeholder { /* Microsoft Edge */
-  color: rgba(255,255,255,.75);;
+  color: rgba(255,255,255,.75);
+  text-shadow: 2px 2px 3px rgba(0,0,0,.2);
 }
