@@ -187,6 +187,7 @@ footer
 #details > ul > a > li:hover {
   background: #eee;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 #search {
