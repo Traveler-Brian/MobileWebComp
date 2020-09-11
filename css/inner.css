@@ -252,7 +252,7 @@ iframe {
   border-radius: 15px;
 }
 
-.sharebtn {
+.sharebtn, .submit {
   background: rgba(255,255,255,0.5);
   display: block;
   width: 100%;
@@ -283,4 +283,10 @@ input[type="week"],
 select:focus,
 textarea {
   font-size: 16px;
+}
+
+.w3-input {
+  background: rgba(255,255,255,.55);
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
