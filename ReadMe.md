@@ -58,6 +58,5 @@
 </details>
 
 ### 螢幕錄影
-<video width="320" height="240" controls>
-  <source src="https://github.com/Traveler-Brian/MobileWebComp/blob/master/video/1.mov" type="video/mov">
-</video>
+按以下下面縮圖進入YouTube觀看。
+[![image](https://img.youtube.com/vi/A3jWGTysKAU/0.jpg)](https://www.youtube.com/watch?v=A3jWGTysKAU)
